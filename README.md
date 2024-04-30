@@ -1,3 +1,5 @@
+python 3.x version
+
 RS30X.py
 ========
 
