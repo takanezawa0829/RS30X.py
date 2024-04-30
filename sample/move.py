@@ -6,6 +6,8 @@ sys.path.append(os.pardir)
 from RS30X import RS30XController
 from RS30X import RS30XParameter
 
+os.environ['RS30X_SERIAL_DEVICE'] = '/dev/ttyAMA0'
+
 id = 1
 
 con = RS30XController()

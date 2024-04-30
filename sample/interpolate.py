@@ -11,6 +11,8 @@ from RS30X import Logger
 SPEED_MAX = 240.0 / 1000.0 # deg per msec
 CONTROL_PERIOD = 20.0 # msec
 
+os.environ['RS30X_SERIAL_DEVICE'] = '/dev/ttyAMA0'
+
 #
 # functions
 #
@@ -60,7 +62,7 @@ def getTrajectory(src, dest, period_, periodMax_):
 # main code
 #
 Logger.level = Logger.ELogLevel.TRACE
-ids = range(1,7)
+ids = list(range(1,7))
 
 con = RS30XController()
 

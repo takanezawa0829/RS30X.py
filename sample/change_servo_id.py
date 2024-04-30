@@ -5,10 +5,12 @@ import time
 sys.path.append(os.pardir)
 from RS30X import RS30XController
 
+os.environ['RS30X_SERIAL_DEVICE'] = '/dev/ttyAMA0'
+
 id = 1
 
 if len(sys.argv) < 2:
-    print "usage: %s dest_id [ src_id ]\n" % os.path.basename(__file__)
+    print("usage: %s dest_id [ src_id ]\n" % os.path.basename(__file__))
     quit()
 elif len(sys.argv) == 3:
     id = int(sys.argv[2])

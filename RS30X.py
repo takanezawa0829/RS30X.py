@@ -26,11 +26,13 @@ class Logger:
             filename = filename.rsplit('/', 1)[1]
         return (filename, frame.f_lineno)
 
+    # log機能は停止
     @classmethod
     def log(cls, level, message, *values):
-        if cls.logging and cls.level.value >= level.value:
-            line = cls.get_line(1)
-            print "%s:[%s]:%s:%d: %s" % (datetime.datetime.now(), level.name, line[0], line[1], message % values)
+        return
+        # if cls.logging and cls.level.value >= level.value:
+        #     line = cls.get_line(1)
+        #     print(("%s:[%s]:%s:%d: %s" % (datetime.datetime.now(), level.name, line[0], line[1], message % values)))
 
     @classmethod
     def logging(cls, logging = True):
@@ -55,7 +57,7 @@ class RS30XController:
         if self.ser is not None:
             self.ser.flushOutput()
             self.ser.flushInput()
-            self.ser.write(array_obj.tostring())
+            self.ser.write(bytes(array_obj))
     
     def initMemMap(self, id):
         a = RS30XController.createShortPacketHeader(id)
